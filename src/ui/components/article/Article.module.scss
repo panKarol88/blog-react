@@ -1,0 +1,15 @@
+.container {
+  height: 100px;
+  margin: 20px;
+  box-shadow: rgb(0 0 0 / 6%) 0px 3px 15px;
+  border-radius: 6px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    //box-shadow: rgb(0 0 0 / 2%) 0px 2px 2px;
+    box-shadow: rgb(0 0 0 / 10%) 0px 0px 2px;
+  }
+}

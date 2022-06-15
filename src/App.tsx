@@ -1,12 +1,14 @@
-import React from 'react';
-import './App.css';
-import { MainNavBar } from "./ui/components/main-nav-bar/MainNavBar";
+import React from "react"
+import { Article } from "./ui/components/article/Article"
+import s from "./App.module.scss"
 
 function App() {
   return (
-      <div className="App">
-          <MainNavBar />
-      </div>
+    <div className={s.app}>
+        <Article />
+        <Article />
+        <Article />
+    </div>
   );
 }
 
