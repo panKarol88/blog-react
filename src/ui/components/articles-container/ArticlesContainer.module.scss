@@ -1,0 +1,21 @@
+$tablet: 900px;
+$mobile: 500px;
+
+$main-top-margin: 50px;
+
+.container {
+  width: 80%;
+  margin: $main-top-margin auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  @media screen and (max-width: $tablet) {
+    width: 90%;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (max-width: $mobile) {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+}
