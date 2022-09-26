@@ -1,6 +1,22 @@
 $article-height: 230px;
 $article-spacing: 15px;
 
+.article-box {
+  transition: 0.7s;
+  transform: scalex(1);
+}
+
+.article-box-absolute {
+  position: absolute;
+}
+
+.article-box-none {
+  width: inherit;
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
+}
+
 .container {
   height: $article-height;
   margin: 10px;
