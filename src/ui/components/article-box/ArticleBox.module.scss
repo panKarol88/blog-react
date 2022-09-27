@@ -23,8 +23,8 @@ $article-spacing: 15px;
   display: flex;
   position: relative;
   flex-direction: column;
-  box-shadow: rgb(0 0 0 / 6%) 0px 3px 15px;
-  border-radius: 6px;
+  box-shadow: rgb(0 0 0 / 6%) 0 3px 15px;
+  border-radius: 0px;
   padding: $article-spacing;
 
   -webkit-touch-callout: none;
@@ -34,38 +34,62 @@ $article-spacing: 15px;
   -ms-user-select: none;
   user-select: none;
 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  transition: transform 0.2s ease-in-out;
+
   &:hover {
     cursor: pointer;
-    box-shadow: rgb(0 0 0 / 10%) 0px 3px 15px;
+    box-shadow: rgb(0 0 0 / 60%) 0 0 15px;
+    transform: scale(1.01);
   }
 
   &:active {
-    box-shadow: rgb(0 0 0 / 10%) 0px 0px 2px;
+    box-shadow: rgb(0 0 0 / 10%) 0 0 2px;
     opacity: 0.45;
   }
 }
 
 .label {
+  width: fit-content;
   margin-bottom: 5px;
   font-size: 20px;
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 0 4px black;
+  text-transform: uppercase;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
+.label span {
+  background-color: black;
+  padding: 0 3px 0 3px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
 $desc-line-height: 1.2em;
 $desc-max-height: 9.6em;
 
 .description {
+  width: fit-content;
   line-height: $desc-line-height;
   max-height: $desc-max-height;
-
   position: absolute;
   display: -webkit-box;
   -webkit-line-clamp: $desc-max-height/$desc-line-height;
   -webkit-box-orient: vertical;
-
+  font-weight: 800;
+  background-color: black;
+  color: white;
+  text-shadow: 0 0 4px black;
+  padding: 4px;
+  margin-right: $article-spacing;
   margin-bottom: $article-spacing;
   bottom: 0;
   font-size: 14px;

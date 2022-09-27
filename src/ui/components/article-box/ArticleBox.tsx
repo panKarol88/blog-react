@@ -13,10 +13,11 @@ type ArticleProps = {
   label: string
   description: string
   articleType: ArticleType
+  bgImage: string
 }
 
 export const ArticleBox = observer((props: ArticleProps) => {
-  const { articleId, label, description, articleType } = props
+  const { articleId, label, description, articleType, bgImage } = props
   const { articlesContainerStore } = useBlogStore()
   const { articleTypeToShow, personalArticleBoxesShouldBeAbsolute } = articlesContainerStore
 
@@ -34,9 +35,14 @@ export const ArticleBox = observer((props: ArticleProps) => {
           "article-box-absolute": shouldBeAbsolute
         })}
     >
-      <div className={s.container}>
+      <div
+        className={s.container}
+        style={{ backgroundImage: "url(" + bgImage + ")" }}
+      >
         <div className={s.label}>
-          { label }
+          <span>
+            { label }
+          </span>
         </div>
         <div className={s.description}>
           { description }

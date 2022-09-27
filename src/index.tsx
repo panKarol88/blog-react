@@ -12,6 +12,12 @@ const root = ReactDOM.createRoot(
 )
 root.render(
   <React.StrictMode>
+    {/*<div className="video-container">*/}
+    {/*  <iframe src="https://www.youtube.com/embed/hPCotoawhk0?controls=0&autoplay=1&mute=1&playsinline=1"></iframe>*/}
+    {/*</div>*/}
+
+    {/*<div className="video-container" style={{ backgroundImage: "url(\"https://i.imgur.com/RDhxPZQ.png\")" }}></div>*/}
+
     <BrowserRouter>
       <Routes>
         <Route path={routePaths.get(staticRoutes.ROOT)} element={<App />} />
