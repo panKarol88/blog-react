@@ -9,7 +9,7 @@ import s from "./ArticleBox.module.scss"
 const cx = cxBinder.bind(s)
 
 type ArticleProps = {
-  articleId: string
+  articleId: number
   label: string
   description: string
   articleType: ArticleType
@@ -21,7 +21,7 @@ export const ArticleBox = observer((props: ArticleProps) => {
   const { articlesContainerStore } = useBlogStore()
   const { articleTypeToShow, personalArticleBoxesShouldBeAbsolute } = articlesContainerStore
 
-  const articleRoute = routePaths.get(staticRoutes.ARTICLES_SHOW)!.replace(":articleId", articleId)
+  const articleRoute = routePaths.get(staticRoutes.ARTICLES_SHOW)!.replace(":articleId", `${articleId}`)
   const shouldBeHidden = !(articleTypeToShow === 'all' || articleTypeToShow === articleType)
   const shouldBeAbsolute = personalArticleBoxesShouldBeAbsolute && articleType !== 'public'
 
