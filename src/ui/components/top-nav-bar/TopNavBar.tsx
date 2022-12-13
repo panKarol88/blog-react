@@ -11,32 +11,35 @@ export const TopNavBar = observer(() => {
 
   return (
     <div className={s.container}>
-      <div className={s['left-navbar-section']}>
+      <div className={s["left-navbar-section"]}>
         <Link
-          className={s['home-button']}
-          to={ routePaths.get(staticRoutes.ROOT)! }
-        > Home
+          className={s["home-button"]}
+          to={routePaths.get(staticRoutes.ROOT)!}
+        >
+          Home
         </Link>
       </div>
-      { currentUser ?
-        <div className={s['right-navbar-section']}>
+      {currentUser ? (
+        <div className={s["right-navbar-section"]}>
           <div
-            className={s['button__login-button__right']}
+            className={s["button__login-button__right"]}
             onClick={() => userSessionStore.signOut()}
           >
+            {/*TODO*/}
             Sign out
           </div>
         </div>
-        :
-        <div className={s['right-navbar-section']}>
+      ) : (
+        <div className={s["right-navbar-section"]}>
           <Link
-            className={s['button__login-button__right']}
-            to={ routePaths.get(staticRoutes.USER_SIGN_IN)! }
+            className={s["button__login-button__right"]}
+            to={routePaths.get(staticRoutes.USER_SIGN_IN)!}
           >
+            {/*TODO*/}
             Sign in
           </Link>
         </div>
-      }
+      )}
     </div>
   )
 })

@@ -5,19 +5,18 @@ import { ArticlePayload } from "../blog.types"
 
 export class ArticlesContainerStore {
   public showArticlesWorthReading: boolean | undefined = true
-  public setShowArticlesWorthReading = async (showArticlesWorthReading: boolean | undefined) => {
+  public setShowArticlesWorthReading = async (
+    showArticlesWorthReading: boolean | undefined
+  ) => {
     this.showArticlesWorthReading = showArticlesWorthReading
     await this.reloadArticlesToShow()
   }
 
   public showArticlesPublished: boolean | undefined = true
-  public setShowArticlesPublished = (showArticlesPublished: boolean | undefined) => {
+  public setShowArticlesPublished = (
+    showArticlesPublished: boolean | undefined
+  ) => {
     this.showArticlesPublished = showArticlesPublished
-  }
-
-  public personalArticleBoxesShouldBeAbsolute: boolean = true
-  public setPersonalArticleBoxesShouldBeAbsolute = (shouldBeAbsolute: boolean) => {
-    this.personalArticleBoxesShouldBeAbsolute = shouldBeAbsolute
   }
 
   public articlesToShow: ArticlePayload[] = []
@@ -25,17 +24,21 @@ export class ArticlesContainerStore {
     this.articlesToShow = articles
   }
 
-  constructor(
-    private apiService: ApiService
-  ) {
+  constructor(private apiService: ApiService) {
     this.reloadArticlesToShow()
 
     makeAutoObservable(this)
   }
 
   public reloadArticlesToShow = async () => {
-    await this.apiService.get(staticApiRoutes.ARTICLES_INDEX, { params: { worth_reading: this.showArticlesWorthReading, published: this.showArticlesPublished } })
-      .then(result => {
+    await this.apiService
+      .get(staticApiRoutes.ARTICLES_INDEX, {
+        params: {
+          worth_reading: this.showArticlesWorthReading,
+          published: this.showArticlesPublished,
+        },
+      })
+      .then((result) => {
         this.setArticlesToShow(result.data.records)
       })
   }

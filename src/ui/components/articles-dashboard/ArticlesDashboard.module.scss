@@ -1,6 +1,6 @@
 $articles-dashboard-height: 80px;
 $articles-dashboard-margin-x: 20px;
-$articles-dashboard-bg-color: #F0F8FF;
+$articles-dashboard-bg-color: #f0f8ff;
 $articles-switch-button-size: $articles-dashboard-height * 0.5;
 
 .container {
@@ -46,7 +46,7 @@ $articles-switch-button-size: $articles-dashboard-height * 0.5;
   padding-right: 5px;
 }
 
-.switch-button .toggle{
+.switch-button .toggle {
   --size: #{$articles-switch-button-size};
   width: var(--size);
   height: calc(var(--size) / 2);
@@ -56,27 +56,27 @@ $articles-switch-button-size: $articles-dashboard-height * 0.5;
   box-shadow: rgb(0 0 0 / 20%) 0 0 10px;
 }
 
-.switch-button .toggle .btn{
-  width:calc(var(--size) / 2);
-  height:100%;
-  position:absolute;
-  left:0;
-  background:#bbb;
-  border-radius:50%;
-  transition:all ease 0.5s;
+.switch-button .toggle .btn {
+  width: calc(var(--size) / 2);
+  height: 100%;
+  position: absolute;
+  left: 0;
+  background: #bbb;
+  border-radius: 50%;
+  transition: all ease 0.5s;
 }
 
-.switch-button input:checked + .toggle .btn{
-  left:50%;
-  background:#008ffc;
+.switch-button input:checked + .toggle .btn {
+  left: 50%;
+  background: #008ffc;
 }
 
-.switch-button input:disabled + .toggle{
-  background:#ddd;
+.switch-button input:disabled + .toggle {
+  background: #ddd;
 }
 
-.switch-button p{
-  margin:8px 0;
-  font-size:0.75em;
-  color:#333;
+.switch-button p {
+  margin: 8px 0;
+  font-size: 0.75em;
+  color: #333;
 }

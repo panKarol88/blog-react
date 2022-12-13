@@ -11,7 +11,7 @@ export const MainWorkspace = (props: MainWorkspaceProps) => {
   return (
     <>
       <TopNavBar />
-      { children }
+      {children}
     </>
   )
 }

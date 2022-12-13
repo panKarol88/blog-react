@@ -1,8 +1,6 @@
-import axios, { Axios } from 'axios'
-import { apiPaths, ApiRoutes } from '../utils/routes.definitions'
+import axios, { Axios } from "axios"
+import { apiPaths, ApiRoutes } from "../utils/routes.definitions"
 import { TokenService } from "./TokenService"
-
-type AllowedApiMethod = 'get' | 'post' | 'patch' | 'put' | 'delete'
 
 type RequestConfig = {
   headers: {
@@ -15,21 +13,31 @@ export class ApiService {
   private tokenService: TokenService = new TokenService()
 
   public get = async (apiUri: ApiRoutes, config?: Object) => {
-    return await this.apiInstance.get(this.requestUrl(apiUri), this.requestConfig(config))
+    return await this.apiInstance.get(
+      this.requestUrl(apiUri),
+      this.requestConfig(config)
+    )
   }
 
   public post = async (apiUri: ApiRoutes, data?: Object, config?: Object) => {
-    return await this.apiInstance.post(this.requestUrl(apiUri), data, this.requestConfig(config))
+    return await this.apiInstance.post(
+      this.requestUrl(apiUri),
+      data,
+      this.requestConfig(config)
+    )
   }
 
   public delete = async (apiUri: ApiRoutes) => {
-    return await this.apiInstance.delete(this.requestUrl(apiUri), this.requestConfig())
+    return await this.apiInstance.delete(
+      this.requestUrl(apiUri),
+      this.requestConfig()
+    )
   }
 
   private requestConfig = (config: Object = {}): RequestConfig => {
     return {
       headers: { Authorization: this.tokenService.getLocalAccessToken() },
-      ...config
+      ...config,
     }
   }
 

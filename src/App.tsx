@@ -16,24 +16,51 @@ function App() {
       const blogStore = await getBlogStoreInstance({})
       setBlogStore(blogStore)
     }
-    console.log('App.tsx')
     initializeBlogStore()
   }, [])
 
   return (
     <>
-      { blogStore &&
-        <RootStoreContext.Provider value={{blogStore}}>
+      {blogStore && (
+        <RootStoreContext.Provider value={{ blogStore }}>
           <BrowserRouter>
             <Routes>
-              <Route path={routePaths.get(staticRoutes.ROOT)} element={<MainWorkspace><ArticlesWorkspace /></MainWorkspace>} />
-              <Route path={routePaths.get(staticRoutes.ARTICLES_INDEX)} element={<MainWorkspace><ArticlesWorkspace /></MainWorkspace>} />
-              <Route path={routePaths.get(staticRoutes.ARTICLES_SHOW)} element={<MainWorkspace><Article /></MainWorkspace>} />
-              <Route path={routePaths.get(staticRoutes.USER_SIGN_IN)} element={<MainWorkspace><SignIn /></MainWorkspace>} />
+              <Route
+                path={routePaths.get(staticRoutes.ROOT)}
+                element={
+                  <MainWorkspace>
+                    <ArticlesWorkspace />
+                  </MainWorkspace>
+                }
+              />
+              <Route
+                path={routePaths.get(staticRoutes.ARTICLES_INDEX)}
+                element={
+                  <MainWorkspace>
+                    <ArticlesWorkspace />
+                  </MainWorkspace>
+                }
+              />
+              <Route
+                path={routePaths.get(staticRoutes.ARTICLES_SHOW)}
+                element={
+                  <MainWorkspace>
+                    <Article />
+                  </MainWorkspace>
+                }
+              />
+              <Route
+                path={routePaths.get(staticRoutes.USER_SIGN_IN)}
+                element={
+                  <MainWorkspace>
+                    <SignIn />
+                  </MainWorkspace>
+                }
+              />
             </Routes>
           </BrowserRouter>
         </RootStoreContext.Provider>
-      }
+      )}
     </>
   )
 }

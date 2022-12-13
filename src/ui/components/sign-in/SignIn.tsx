@@ -10,29 +10,32 @@ export const SignIn = observer(() => {
   const [password, setPassword] = useState("")
 
   const handleSubmit = async (event: { preventDefault: () => void }) => {
-    event.preventDefault();
+    event.preventDefault()
     await userSessionStore.signIn(email, password)
   }
 
   return (
     <div className={s.container}>
-      { currentUser ? 'You are already logged in.' :
-        <form onSubmit={ handleSubmit }>
+      {currentUser ? (
+        // TODO
+        "You are already logged in."
+      ) : (
+        <form onSubmit={handleSubmit}>
           <label>Email:</label>
           <input
             type="text"
-            value={ email }
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <label>Password:</label>
           <input
             type="password"
-            value={ password }
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
           <input type="submit" />
         </form>
-      }
+      )}
     </div>
   )
 })

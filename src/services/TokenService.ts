@@ -41,7 +41,7 @@ export class TokenService {
 
     if (!token) return undefined
 
-    return jwt_decode(token.split(' ')[1])
+    return jwt_decode(token.split(" ")[1])
   }
 
   private getUser = () => {

@@ -9,13 +9,17 @@ export const ArticlesContainer = observer(() => {
 
   return (
     <div className={s.container}>
-      { articlesContainerStore.articlesToShow.map((item, _index)=>{
-        return <ArticleBox key={ item['id'] }
-                           articleId={ item['id'] }
-                           bgImage={ item['bg_image_url'] }
-                           label={ item['label'] }
-                           description={ item['description'] } />
-      }) }
+      {articlesContainerStore.articlesToShow.map((item, _index) => {
+        return (
+          <ArticleBox
+            key={item["id"]}
+            articleId={item["id"]}
+            bgImage={item["bg_image_url"]}
+            label={item["label"]}
+            description={item["description"]}
+          />
+        )
+      })}
     </div>
   )
 })

@@ -1,17 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
-import App from './App'
-import reportWebVitals from './reportWebVitals'
+import React from "react"
+import ReactDOM from "react-dom/client"
+import "./index.css"
+import App from "./App"
+import reportWebVitals from "./reportWebVitals"
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-)
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
 root.render(
   // StrictMode is a tool for highlighting potential problems in an application.
   // It causes the application to render twice, first with the legacy mode and then with the strict mode.
   // <React.StrictMode>
-    <App />
+  <App />
   // </React.StrictMode>
 )
 
