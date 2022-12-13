@@ -1,14 +1,5 @@
-export type ArticleType = 'personal' | 'public' | 'all'
-
-export enum ArticleTypeLabels {
-  personal = 'Chaotyczne przemyślenia',
-  public = 'Warte przeczytania',
-  all = 'Wszystkie'
-}
-
 export type ArticlePayload = {
   id: number,
-  article_type: ArticleType,
   bg_image_url: string
   content: string,
   created_at: string,
@@ -18,3 +9,8 @@ export type ArticlePayload = {
 }
 
 export type BlogStoreParams = {}
+
+export type UserType = {
+  email: string,
+  nickname: string
+}

@@ -1,0 +1,82 @@
+$articles-dashboard-height: 80px;
+$articles-dashboard-margin-x: 20px;
+$articles-dashboard-bg-color: #F0F8FF;
+$articles-switch-button-size: $articles-dashboard-height * 0.5;
+
+.container {
+  display: flex;
+  width: 100%;
+  height: $articles-dashboard-height;
+  background-color: $articles-dashboard-bg-color;
+}
+
+.articles-dashboard {
+  position: relative;
+  margin: 0 $articles-dashboard-margin-x 0 $articles-dashboard-margin-x;
+  width: 100%;
+}
+
+.switch-button-container {
+  left: 0;
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.switch-button-label {
+  display: table-cell;
+  width: 100%;
+  font-size: 11px;
+  margin-top: auto;
+  margin-bottom: auto;
+  transition: 0.7s;
+  opacity: 0;
+}
+
+.switch-button-container:hover .switch-button-label {
+  opacity: 100;
+}
+
+.switch-button {
+  display: table-cell;
+  cursor: pointer;
+  padding-right: 5px;
+}
+
+.switch-button .toggle{
+  --size: #{$articles-switch-button-size};
+  width: var(--size);
+  height: calc(var(--size) / 2);
+  position: relative;
+  background: #fff;
+  border-radius: var(--size);
+  box-shadow: rgb(0 0 0 / 20%) 0 0 10px;
+}
+
+.switch-button .toggle .btn{
+  width:calc(var(--size) / 2);
+  height:100%;
+  position:absolute;
+  left:0;
+  background:#bbb;
+  border-radius:50%;
+  transition:all ease 0.5s;
+}
+
+.switch-button input:checked + .toggle .btn{
+  left:50%;
+  background:#008ffc;
+}
+
+.switch-button input:disabled + .toggle{
+  background:#ddd;
+}
+
+.switch-button p{
+  margin:8px 0;
+  font-size:0.75em;
+  color:#333;
+}

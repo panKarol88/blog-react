@@ -3,7 +3,7 @@ import { observer } from "mobx-react"
 import { useParams } from "react-router-dom"
 import { useBlogStore } from "../../../stores/store-context"
 import { Link } from "react-router-dom"
-import { staticRoutes, routePaths } from "../../../utils/routes.definitions"
+import { staticRoutes, routePaths, apiPaths, staticApiRoutes } from "../../../utils/routes.definitions"
 import { staticImageDirectories, imageDirectories } from "../../../utils/images.definitions"
 import { ArticlePayload } from "../../../stores/blog.types"
 import s from "./Article.module.scss"
@@ -12,10 +12,10 @@ export const Article = observer(() => {
   const params = useParams()
   const { apiService } = useBlogStore()
   const [article, setArticle] = useState<ArticlePayload | {}>({})
+  const articleApiUrl = apiPaths.get(staticApiRoutes.ARTICLES_SHOW)!.replace(":articleId", params.articleId as string)
 
   useEffect(() => {
-    // apiService.apiInstance.get(`https://karol-blog-rails.herokuapp.com/articles/${params.articleId}`)
-    apiService.apiInstance.get(`http://localhost:3001/articles/${params.articleId}`)
+    apiService.apiInstance.get(articleApiUrl)
       .then(res => {
         setArticle(res.data)
       })

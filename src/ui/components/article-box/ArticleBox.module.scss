@@ -1,6 +1,9 @@
 $article-height: 230px;
 $article-spacing: 15px;
 
+$article-box-bg-color: black;
+$article-box-shadow-color: black;
+
 .article-box {
   transition: 0.7s;
   transform: scalex(1);
@@ -58,7 +61,7 @@ $article-spacing: 15px;
   font-size: 20px;
   font-weight: 900;
   color: white;
-  text-shadow: 0 0 4px black;
+  text-shadow: 0 0 4px $article-box-shadow-color;
   text-transform: uppercase;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -67,10 +70,14 @@ $article-spacing: 15px;
 }
 
 .label span {
-  background-color: black;
+  background-color: $article-box-bg-color;
   padding: 0 3px 0 3px;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
+}
+
+.label span:empty {
+  padding: 0;
 }
 
 $desc-line-height: 1.2em;
@@ -85,9 +92,9 @@ $desc-max-height: 9.6em;
   -webkit-line-clamp: $desc-max-height/$desc-line-height;
   -webkit-box-orient: vertical;
   font-weight: 800;
-  background-color: black;
+  background-color: $article-box-bg-color;
   color: white;
-  text-shadow: 0 0 4px black;
+  text-shadow: 0 0 4px $article-box-shadow-color;
   padding: 4px;
   margin-right: $article-spacing;
   margin-bottom: $article-spacing;
@@ -95,6 +102,10 @@ $desc-max-height: 9.6em;
   font-size: 14px;
   overflow: hidden;
   flex: 1;
+}
+
+.description:empty {
+  padding: 0;
 }
 
 a {

@@ -1,16 +1,41 @@
+//NAVBAR GENERAL
 $nav-bar-height: 80px;
-$articles-switch-button-size: $nav-bar-height * 0.5;
+$nav-bar-margin-x: 20px;
+$nav-bar-bg-color: #EBF4FA;
+
+//NAVBAR BUTTONS
+$nav-bar-button-font-size: 16px;
+$nav-bar-button-bg-color: white;
+$nav-bar-button-text-color: black;
+$nav-bar-button-border-color: #960303;
 
 .container {
+  display: flex;
   width: 100%;
   height: $nav-bar-height;
-  position: relative;
+  background-color: $nav-bar-bg-color;
 }
 
-.switch-button-container {
+.left-navbar-section {
+  width: 50%;
+  position: relative;
+  margin-left: $nav-bar-margin-x;
+}
+
+.right-navbar-section {
+  width: 50%;
+  position: relative;
+  margin-right: $nav-bar-margin-x;
+}
+
+#buttons{
+  width: 80vw;
+  margin: auto;
+  text-align: center;
+}
+
+.login-button-container {
   right: 0;
-  margin: 0 40px 0 0;
-  display: flex;
   cursor: pointer;
   position: absolute;
   top: 50%;
@@ -18,56 +43,51 @@ $articles-switch-button-size: $nav-bar-height * 0.5;
   transform: translateY(-50%);
 }
 
-.switch-button-label {
-  display: table-cell;
-  margin-right: 5px;
-  font-size: 11px;
-  margin-top: auto;
-  margin-bottom: auto;
-  transition: 0.7s;
-  opacity: 0;
-}
-
-.switch-button-container:hover .switch-button-label {
-  opacity: 100;
-}
-
-.switch-button {
-  display: table-cell;
+.home-button {
+  font-size: $nav-bar-button-font-size;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
   cursor: pointer;
 }
 
-.switch-button .toggle{
-  --size: #{$articles-switch-button-size};
-  width: var(--size);
-  height: calc(var(--size) / 2);
-  position: relative;
-  background: #fff;
-  border-radius: var(--size);
-  box-shadow: rgb(0 0 0 / 20%) 0 0 10px;
-}
+.button {
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: $nav-bar-button-font-size;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 5%;
+  padding: 5px 10px 5px 10px;
 
-.switch-button .toggle .btn{
-  width:calc(var(--size) / 2);
-  height:100%;
-  position:absolute;
-  left:0;
-  background:#bbb;
-  border-radius:50%;
-  transition:all ease 0.5s;
-}
+  &__login-button {
+    @extend .button;
+    background-color: $nav-bar-button-bg-color;
+    color: $nav-bar-button-text-color;
+    border: 2px solid $nav-bar-button-border-color;
 
-.switch-button input:checked + .toggle .btn{
-  left:50%;
-  background:#008ffc;
-}
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 
-.switch-button input:disabled + .toggle{
-  background:#ddd;
-}
+    &__right {
+      @extend .button__login-button;
+      right: 0;
+    }
 
-.switch-button p{
-  margin:8px 0;
-  font-size:0.75em;
-  color:#333;
+    &__left {
+      @extend .button__login-button;
+      left: 0;
+    }
+  }
+
+  &__login-button:hover {
+    background-color: $nav-bar-button-border-color;
+    color: $nav-bar-button-bg-color;
+  }
 }
